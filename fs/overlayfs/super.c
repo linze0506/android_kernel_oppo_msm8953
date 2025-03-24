@@ -617,9 +617,8 @@ static bool ovl_is_allowed_fs_type(struct dentry *root)
 	if (dop &&
 	    (dop->d_manage || dop->d_automount ||
 	     dop->d_revalidate || dop->d_weak_revalidate ||
-	     )) {
-		return false;
-	}
+	     /* 删除对 d_compare 和 d_hash 的检查 */)) {
+	 return false; }
 	return true;
 }
 
