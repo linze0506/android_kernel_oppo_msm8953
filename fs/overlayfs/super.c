@@ -611,13 +611,12 @@ static bool ovl_is_allowed_fs_type(struct dentry *root)
 	/*
 	 * We don't support:
 	 *  - automount filesystems
-	 *  - filesystems with revalidate (FIXME for lower layer)
+	 *  - filesystems with revalidate
 	 *  - filesystems with case insensitive names
 	 */
 	if (dop &&
 	    (dop->d_manage || dop->d_automount ||
-	     dop->d_revalidate || dop->d_weak_revalidate ||
-	     /* 删除对 d_compare 和 d_hash 的检查 */)) {
+	     dop->d_revalidate || dop->d_weak_revalidate)) {
 	 return false; }
 	return true;
 }
